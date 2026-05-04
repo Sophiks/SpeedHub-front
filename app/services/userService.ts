@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "https://speedhub-6fam.onrender.com/api/users";
+const BASE_URL = "https://speedhub-back.onrender.com/api/users";
 
 export interface TestResultData {
   correctAnswers: number;

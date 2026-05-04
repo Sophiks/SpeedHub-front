@@ -39,7 +39,7 @@ const ReviewPage = () => {
     queryKey: ["reviewQuestions", mistakeIds],
     queryFn: async () => {
       const res = await axios.post(
-        "https://speedhub-6fam.onrender.com/api/questions/get-by-ids",
+        "https://speedhub-back.onrender.com/api/questions/get-by-ids",
         { ids: mistakeIds },
       );
       return res.data;

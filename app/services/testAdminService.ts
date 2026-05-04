@@ -1,4 +1,4 @@
-const BASE_URL = "https://speedhub-6fam.onrender.com/api/questions";
+const BASE_URL = "https://speedhub-back.onrender.com/api/questions";
 
 export interface QuestionOption {
   _id?: string;

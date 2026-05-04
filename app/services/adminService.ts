@@ -6,7 +6,7 @@ export interface UpdateUserData {
   role?: "user" | "admin";
 }
 
-const BASE_URL = "https://speedhub-6fam.onrender.com/api/admin";
+const BASE_URL = "https://speedhub-back.onrender.com/api/admin";
 
 /**
  * Функція витягує токен з куки 'token'.
