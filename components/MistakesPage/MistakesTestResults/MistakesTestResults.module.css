@@ -1,0 +1,162 @@
+/* =========================================
+   КАРТКА РЕЗУЛЬТАТІВ
+   ========================================= */
+.resultCard {
+    background: var(--section-card-bg);
+    border: 1px solid var(--section-card-border);
+    border-radius: 24px;
+    padding: 60px 40px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+/* Легке зелене свічення для успішної картки */
+.successCard {
+    border-color: rgba(34, 197, 94, 0.3);
+    box-shadow: 0 10px 40px rgba(34, 197, 94, 0.05);
+}
+
+/* Легке червоне свічення для картки провалу */
+.failCard {
+    border-color: rgba(239, 68, 68, 0.3);
+    box-shadow: 0 10px 40px rgba(239, 68, 68, 0.05);
+}
+
+/* =========================================
+   АНІМОВАНІ ІКОНКИ
+   ========================================= */
+.iconWrapper {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    animation: popIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.iconWrapper svg {
+    width: 40px;
+    height: 40px;
+}
+
+.iconSuccess {
+    background: rgba(34, 197, 94, 0.15);
+    color: #22c55e;
+}
+
+.iconFail {
+    background: rgba(239, 68, 68, 0.15);
+    color: #ef4444;
+}
+
+/* =========================================
+   ЗАГОЛОВКИ ТА ТЕКСТ
+   ========================================= */
+.heading {
+    color: var(--section-text-title);
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+/* Кольори для тексту-акценту */
+.highlightSuccess { color: #22c55e; }
+.highlightFail { color: #ef4444; }
+
+.resultText {
+    color: var(--section-text-desc);
+    font-size: 18px;
+    margin-bottom: 40px;
+    max-width: 500px;
+    line-height: 1.5;
+}
+
+.resultText strong {
+    color: var(--section-text-title);
+    font-size: 20px;
+}
+
+/* =========================================
+   КНОПКИ ТА ДІЇ
+   ========================================= */
+.resultActions {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    width: 100%;
+    align-items: center;
+}
+
+.buttonOutline {
+    padding: 14px 32px;
+    border-radius: 999px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid var(--section-card-border);
+    color: var(--section-text-title);
+    transition: all 0.3s ease;
+}
+
+.buttonOutline:hover {
+    border-color: var(--section-text-title);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.buttonBase {
+    display: inline-block;
+    padding: 14px 32px;
+    border-radius: 999px;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+    color: #ffffff;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+/* Зелена кнопка */
+.buttonSuccess {
+    background-color: #22c55e;
+    box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
+}
+.buttonSuccess:hover {
+    background-color: #16a34a;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(34, 197, 94, 0.4);
+}
+
+/* Червона кнопка */
+.buttonFail {
+    background-color: #ef4444;
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+.buttonFail:hover {
+    background-color: #dc2626;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(239, 68, 68, 0.4);
+}
+
+@keyframes popIn {
+    0% { transform: scale(0.5); opacity: 0; }
+    80% { transform: scale(1.1); opacity: 1; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+@media (max-width: 600px) {
+    .resultActions {
+        flex-direction: column;
+    }
+    .buttonOutline, .buttonBase {
+        width: 100%;
+        text-align: center;
+    }
+}

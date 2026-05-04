@@ -1,0 +1,29 @@
+.section {
+    padding: 60px 0;
+    background-color: var(--section-bg);
+    min-height: calc(100vh - 80px);
+    transition: background-color 0.3s ease;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.testWrapper {
+    background: var(--section-card-bg);
+    border: 1px solid var(--section-card-border);
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: var(--section-img-shadow);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+
+@media (max-width: 600px) {
+    .testWrapper {
+        padding: 24px 20px;
+    }
+}
