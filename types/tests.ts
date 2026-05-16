@@ -1,11 +1,9 @@
-// 1. Описуємо тип для одного варіанта відповіді
 export interface Option {
   _id: string;
   id: number;
   text: string;
 }
 
-// 2. Створюємо спеціальний тип для масиву, який може містити рівно від 2 до 6 елементів
 export type OptionsArray =
   | [Option, Option] // Рівно 2
   | [Option, Option, Option] // Рівно 3
@@ -13,13 +11,12 @@ export type OptionsArray =
   | [Option, Option, Option, Option, Option] // Рівно 5
   | [Option, Option, Option, Option, Option, Option]; // Рівно 6
 
-// 3. Описуємо головний об'єкт питання
 export interface Test {
   _id: string;
   id: string;
-  image: string[]; // Якщо в image будуть URL картинок. Якщо щось інше - зміни на відповідний тип
+  image: string[];
   question: string;
-  options: OptionsArray; // Використовуємо наш обмежений масив
+  options: OptionsArray;
   correct_option_id: number;
   explanation: string;
 }
@@ -39,8 +36,8 @@ export const testsData: TestTheme[] = [
     { id: "r5", themeNumber: "Тема 5", title: "Обов'язки і права пасажирів", link: "/tests/r5" },
     { id: "r6", themeNumber: "Тема 6", title: "Вимоги до велосипедистів", link: "/tests/r6" },
     { id: "r7", themeNumber: "Тема 7", title: "Вимоги до осіб, які керують гужовим транспортом, і погоничів тварин", link: "/tests/r7" },
-    { id: "r8_1", themeNumber: "Тема 8.1", title: "Регулювання дорожнього руху (регульовані перехрестя)", link: "/tests/r8_1" },
-    { id: "r8_2", themeNumber: "Тема 8.2", title: "Регулювання дорожнього руху (нерегульовані перехрестя)", link: "/tests/r8_2" },
+    { id: "r8_1", themeNumber: "Тема 8_1", title: "Регулювання дорожнього руху (регульовані перехрестя)", link: "/tests/r8_1" },
+    { id: "r8_2", themeNumber: "Тема 8_2", title: "Регулювання дорожнього руху (нерегульовані перехрестя)", link: "/tests/r8_2" },
     { id: "r9", themeNumber: "Тема 9", title: "Попереджувальні сигнали", link: "/tests/r9" },
     { id: "r10", themeNumber: "Тема 10", title: "Початок руху та зміна його напрямку", link: "/tests/r10" },
     { id: "r11", themeNumber: "Тема 11", title: "Розташування транспортних засобів на дорозі", link: "/tests/r11" },
@@ -73,10 +70,7 @@ export const testsData: TestTheme[] = [
     { id: "r37", themeNumber: "Тема 37", title: "Надання домедичної допомоги", link: "/tests/r37" },
     { id: "r38", themeNumber: "Тема 38", title: "Етика водіння, культура та відпочинок водія", link: "/tests/r38" },
     { id: "r39", themeNumber: "Тема 39", title: "Європротокол", link: "/tests/r39" },
-    { id: "r44", themeNumber: "Тема 44", title: "Додаткові питання щодо категорій в1, в (загальні)", link: "/tests/r44" },
-    { id: "r45", themeNumber: "Тема 45", title: "Додаткові питання щодо категорій в1, в (будова і терміни)", link: "/tests/r45" },
-    { id: "r46", themeNumber: "Тема 46", title: "Додаткові питання щодо категорій в1, в (юридична відповідальність)", link: "/tests/r46" },
-    { id: "r47", themeNumber: "Тема 47", title: "Додаткові питання щодо категорій в1, в (безпека)", link: "/tests/r47" },
+    { id: "r47", themeNumber: "Тема 40", title: "Додаткові питання щодо категорій в1, в (безпека)", link: "/tests/r47" },
     
     
     
@@ -86,5 +80,5 @@ export const themeIds = [
   "r1", "r2", "r3", "r4", "r5", "r6", "r7", "r8_1","r8_2", "r9", "r10",
   "r11", "r12", "r13", "r14", "r15", "r16_1","r16_2", "r17", "r18", "r19", "r20",
   "r21", "r22", "r23", "r24", "r25", "r26", "r27", "r28", "r29", "r30",
-  "r31", "r32", "r33", "r34", "r35", "r36", "r37", "r38", "r39", "r44", "r45", "r46", "r47"
+  "r31", "r32", "r33", "r34", "r35", "r36", "r37", "r38", "r39", "r47"
 ];

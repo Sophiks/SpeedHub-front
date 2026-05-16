@@ -8,25 +8,18 @@ export interface UpdateUserData {
 
 const BASE_URL = "https://speedhub-back.onrender.com/api/admin";
 
-/**
- * Функція витягує токен з куки 'token'.
- * Додано перевірку на "eyJ", щоб не брати сміття на кшталт 'session_active'.
- */
 const getJwtFromCookies = (): string | null => {
   if (typeof document === "undefined") return null;
 
   const cookies = document.cookie.split("; ");
-  // Шукаємо саме куку з назвою 'token'
   const tokenValue = cookies
     .find((row) => row.startsWith("token="))
     ?.split("=")[1];
 
-  // Якщо кука є і вона схожа на JWT токен (починається на eyJ)
   if (tokenValue && tokenValue.startsWith("eyJ")) {
     return tokenValue;
   }
 
-  // Якщо в куках немає JWT, спробуємо глянути в localStorage на всякий випадок
   const fallback = localStorage.getItem("accessToken") || localStorage.getItem("token");
   if (fallback && fallback.startsWith("eyJ")) {
     return fallback;
@@ -36,9 +29,7 @@ const getJwtFromCookies = (): string | null => {
 };
 
 export const adminService = {
-  /**
-   * Завантаження всіх користувачів
-   */
+
   getAllUsers: async (): Promise<User[]> => {
     const token = getJwtFromCookies();
 
@@ -62,9 +53,6 @@ export const adminService = {
     return response.json();
   },
 
-  /**
-   * Оновлення користувача
-   */
   updateUser: async (id: string, data: UpdateUserData): Promise<User> => {
     const token = getJwtFromCookies();
     const response = await fetch(`${BASE_URL}/users/${id}`, {
@@ -79,9 +67,6 @@ export const adminService = {
     return response.json();
   },
 
-  /**
-   * Видалення користувача
-   */
   deleteUser: async (id: string): Promise<void> => {
     const token = getJwtFromCookies();
     const response = await fetch(`${BASE_URL}/users/${id}`, {

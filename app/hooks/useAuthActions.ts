@@ -21,7 +21,6 @@ export const useAuthActions = (onClose: () => void) => {
   const handleLogin = async (values: LoginValues): Promise<void> => {
     setError(null);
     try {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const response = (await authService.login(values)) as any;
 
       const name = response.name || "Користувач";
@@ -29,11 +28,8 @@ export const useAuthActions = (onClose: () => void) => {
       const surname = response.surname || "";
       const subscriptionType = response.subscriptionType || "free";
 
-      // Намагаємось дістати токен. Якщо його немає в JSON,
-      // ставимо "session_active", щоб адмінка не блокувала вхід.
       const token = response.token || response.accessToken || "session_active";
 
-      // 1. Записуємо в LocalStorage
       localStorage.setItem("userName", name);
       localStorage.setItem("role", role);
       localStorage.setItem("token", token);
@@ -48,7 +44,6 @@ export const useAuthActions = (onClose: () => void) => {
         }),
       );
 
-      // 2. Записуємо куки (критично для Vercel)
       const expires = new Date(
         Date.now() + 7 * 24 * 60 * 60 * 1000,
       ).toUTCString();
@@ -59,7 +54,6 @@ export const useAuthActions = (onClose: () => void) => {
 
       if (onClose) onClose();
 
-      // 3. Редірект через window.location, щоб скинути стейт і перечитати куки
       window.location.href = role === "admin" ? "/admin" : "/tests";
     } catch (err: unknown) {
       const errorParsed = err as AuthError;

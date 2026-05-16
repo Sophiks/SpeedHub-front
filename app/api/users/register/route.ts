@@ -1,15 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
-import { api } from "../../api"; // Перевір, щоб тут було рівно 3 рази "../"
+import { api } from "../../api";
 import { isAxiosError } from "axios";
 
 export async function POST(req: NextRequest) {
-  console.log(">>> API Register Route hit!"); // Якщо побачиш це в терміналі — 404 зникне
+  console.log(">>> API Register Route hit!");
 
   try {
     const body = await req.json();
 
-    // Стукаємо на твій Express бекенд (Render)
-    // Переконайся, що в api.ts baseURL закінчується на /api
     const apiRes = await api.post("users/register", body);
 
     return NextResponse.json(apiRes.data, { status: 201 });

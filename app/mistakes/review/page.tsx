@@ -49,19 +49,18 @@ const ReviewPage = () => {
 
   useEffect(() => {
     if (isFinished && !isSaved && questions) {
-      // Визначаємо unitId (якщо всі помилки з однієї теми, беремо її ID)
       const unitId = questions[0]?.unitId;
 
       userService
         .updateStats("review", {
-          unitId: unitId, // Додаємо unitId, щоб бекенд знав, яку тему оновлювати
+          unitId: unitId,
           correctAnswers: correctCount,
           incorrectAnswers: questions.length - correctCount,
           totalQuestions: questions.length,
           timeSpent: 0,
           mistakes: [],
           resolvedMistakes: resolvedIds,
-          isPassed: correctCount / questions.length >= 0.9, // Рахуємо чи здано
+          isPassed: correctCount / questions.length >= 0.9,
         })
         .then(() => setIsSaved(true));
     }

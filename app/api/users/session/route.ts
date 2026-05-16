@@ -9,6 +9,5 @@ export async function GET() {
     return NextResponse.json({ authenticated: false }, { status: 401 });
   }
 
-  // Можна повернути статус, або зробити запит до беку /auth/me, щоб отримати дані юзера
   return NextResponse.json({ authenticated: true });
 }
