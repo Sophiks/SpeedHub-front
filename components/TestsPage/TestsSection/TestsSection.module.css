@@ -1,6 +1,3 @@
-/* =========================================
-   БАЗОВІ СТИЛІ СЕКЦІЇ
-   ========================================= */
 .section {
     padding: 80px 0;
     background-color: var(--section-bg);
@@ -27,33 +24,24 @@
     color: var(--section-accent);
 }
 
-/* =========================================
-   СІТКА (АДАПТИВНА)
-   ========================================= */
 .grid {
     display: grid;
     gap: 24px;
-    /* За замовчуванням (мобілка): 1 колонка */
     grid-template-columns: 1fr;
 }
 
-/* Планшет: 2 колонки */
 @media (min-width: 768px) {
     .grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
-/* ПК: 3 колонки */
 @media (min-width: 1024px) {
     .grid {
         grid-template-columns: repeat(3, 1fr);
     }
 }
 
-/* =========================================
-   КАРТКА (ПОСИЛАННЯ)
-   ========================================= */
 .card {
     background: var(--section-card-bg);
     border: 1px solid var(--section-card-border);
@@ -62,16 +50,14 @@
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     text-decoration: none;
-    /* Прибираємо підкреслення посилання */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     transition: all 0.3s ease;
     height: 100%;
-    /* Щоб всі картки в рядку були однакової висоти */
+
 }
 
-/* Анімація при наведенні (як у FAQ) */
 .card:hover {
     transform: translateY(-8px);
     background: var(--section-card-hover-bg);
@@ -79,9 +65,6 @@
     box-shadow: var(--section-card-hover-shadow);
 }
 
-/* =========================================
-   ВНУТРІШНІ ЕЛЕМЕНТИ КАРТКИ
-   ========================================= */
 .cardHeader {
     display: flex;
     justify-content: space-between;
@@ -89,7 +72,6 @@
     margin-bottom: 16px;
 }
 
-/* Плашка з номером теми */
 .themeBadge {
     background: var(--section-icon-bg);
     color: var(--section-accent);
@@ -101,7 +83,6 @@
     letter-spacing: 0.5px;
 }
 
-/* Стрілочка (анімується при наведенні на картку) */
 .arrowIcon {
     color: var(--section-text-desc);
     font-size: 20px;
@@ -111,10 +92,8 @@
 .card:hover .arrowIcon {
     color: var(--section-accent);
     transform: translateX(4px);
-    /* Зсуваємо стрілочку вправо при наведенні */
 }
 
-/* Назва теми */
 .cardTitle {
     color: var(--section-text-title);
     font-size: 18px;
@@ -122,19 +101,15 @@
     line-height: 1.4;
     margin: 0 0 24px 0;
     transition: color 0.3s ease;
-    /* Якщо назва дуже довга, можна обмежити її рядки, але зараз просто розтягує картку */
 }
 
-/* Блок з кількістю тестів */
 .cardFooter {
     display: flex;
     align-items: center;
     gap: 8px;
     margin-top: auto;
-    /* Притискає футер до низу, якщо назва коротка */
     padding-top: 16px;
     border-top: 1px solid var(--section-card-border);
-    /* Легкий розділювач */
     transition: border-color 0.3s ease;
 }
 

@@ -1,0 +1,195 @@
+.reviewsSection {
+    padding: 80px 0;
+    width: 100%;
+    /* Світло-голубий фірмовий фон, точно як на всьому твоєму сайті */
+    background-color: rgba(16, 156, 241, 0.5);
+}
+
+.container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.headerBlock {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.title {
+    font-size: 36px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 12px;
+    letter-spacing: -0.5px;
+}
+
+.title span {
+    color: #109cf1;
+}
+
+.subtitle {
+    font-size: 15px;
+    color: #000000;
+}
+
+.loaderBlock, .emptyBlock {
+    text-align: center;
+    padding: 60px 0;
+    color: #718096;
+}
+
+.carouselWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    max-width: 1020px;
+    margin: 0 auto;
+}
+
+/* Біла акуратна картка, яка круто контрастує з голубим фоном */
+.carouselCard {
+    display: flex;
+    background: #ffffff;
+    border: 1px solid #edf2f7;
+    border-radius: 28px;
+    overflow: hidden;
+    width: 100%;
+    height: 380px; /* Зафіксована висота, щоб нічого не ламалося */
+    box-shadow: 0 15px 35px rgba(16, 156, 241, 0.05); /* Легка витончена тінь */
+}
+
+/* Ліва частина з фоткою */
+.imageSide {
+    flex: 0 0 360px;
+    width: 360px;
+    position: relative;
+    background-color: #edf2f7;
+}
+
+.bigAvatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Права частина з білим фоном і контентом */
+.contentSide {
+    flex: 1;
+    padding: 48px 56px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    background: #ffffff;
+}
+
+/* Великі лапки на фоні */
+.quoteIcon {
+    font-size: 120px;
+    color: #109cf1;
+    opacity: 0.08;
+    font-family: Georgia, serif;
+    position: absolute;
+    top: 10px;
+    left: 40px;
+    line-height: 1;
+    pointer-events: none;
+}
+
+/* Текст відгуку */
+.reviewText {
+    font-size: 17px;
+    line-height: 1.65;
+    color: #4a5568;
+    font-style: italic;
+    font-weight: 450;
+    margin: 0;
+    position: relative;
+    z-index: 2;
+}
+
+/* Автор */
+.userMeta {
+    border-top: 1px solid #edf2f7;
+    padding-top: 18px;
+}
+
+.userName {
+    font-size: 19px;
+    font-weight: 700;
+    color: #1a202c;
+    margin: 0 0 2px 0;
+}
+
+.userStatus {
+    font-size: 13px;
+    color: #109cf1;
+    font-weight: 600;
+}
+
+/* Стрілочки гортання */
+.arrowButton {
+    background: #ffffff;
+    border: 1px solid #edf2f7;
+    color: #718096;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    flex-shrink: 0;
+}
+
+.arrowButton:hover {
+    background: #109cf1;
+    color: #ffffff;
+    border-color: #109cf1;
+    transform: scale(1.05);
+}
+
+/* Адаптивність під мобілки */
+@media (max-width: 850px) {
+    .reviewsSection {
+        padding: 56px 0;
+    }
+
+    .title {
+        font-size: 28px;
+    }
+
+    .carouselWrapper {
+        gap: 16px;
+        flex-direction: column;
+    }
+
+    .carouselCard {
+        flex-direction: column;
+        height: auto;
+        border-radius: 20px;
+    }
+
+    .imageSide {
+        width: 100%;
+        flex: none;
+        height: 280px;
+    }
+
+    .contentSide {
+        padding: 32px;
+    }
+
+    .reviewText {
+        font-size: 15px;
+        margin-bottom: 24px;
+    }
+
+    .userName {
+        font-size: 18px;
+    }
+}

@@ -1,17 +1,11 @@
-// ТУТ НЕМАЄ "use client" - це серверний компонент!
 import { dehydrate, HydrationBoundary, QueryClient } from '@tanstack/react-query';
 import TestsSectionClient from './TestSection.Client';
 import { getTestsByTheme } from '@/lib/api';
 import { themeIds } from '@/types/tests';
 
 export default async function TestsSection() {
-    // Створюємо новий екземпляр QueryClient для цього серверного запиту
     const queryClient = new QueryClient();
 
-    // Масив наших ID тем, для яких треба отримати дані
-   
-
-    // Робимо всі запити паралельно на сервері та кладемо їх у кеш
     await Promise.all(
         themeIds.map((id) =>
             queryClient.prefetchQuery({
@@ -22,7 +16,6 @@ export default async function TestsSection() {
     );
 
     return (
-        // HydrationBoundary "передає" зібраний кеш клієнтським компонентам всередині
         <HydrationBoundary state={dehydrate(queryClient)}>
             <TestsSectionClient />
         </HydrationBoundary>

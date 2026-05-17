@@ -4,9 +4,8 @@ import React from 'react';
 import Link from 'next/link';
 import { useQuery } from '@tanstack/react-query';
 import { getTestsByTheme } from '@/lib/api';
-import css from './TestsSection.module.css'; // Використовуємо спільні стилі
+import css from './TestsSection.module.css';
 
-// Експортуємо інтерфейс, щоб його міг використовувати головний компонент
 export interface TestTheme {
     id: string;
     themeNumber: string;
@@ -15,7 +14,6 @@ export interface TestTheme {
 }
 
 const TestCard = ({ test }: { test: TestTheme }) => {
-    // Хук useQuery тепер живе тут і відповідає лише за цю конкретну картку
     const { data, isLoading, isError } = useQuery({
         queryKey: ["tests", test.id],
         queryFn: () => getTestsByTheme(test.id),

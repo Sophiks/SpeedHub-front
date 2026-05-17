@@ -1,7 +1,7 @@
 import React from 'react';
 import css from './FaqSection.module.css';
 
-// Масив з даними, щоб не дублювати HTML-код 6 разів
+
 const featuresData = [
     {
         id: 1,
