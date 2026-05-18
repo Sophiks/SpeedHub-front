@@ -55,7 +55,7 @@ const StatsSummary = ({ statistics }: StatsSummaryProps) => {
         <div className={css.miniCard}>
           <p className={css.miniLabel}>Пройдено тем</p>
           <p className={css.miniValue}>
-            {passedUnitsCount} <span>з 34</span>
+            {passedUnitsCount} <span>з 42</span>
           </p>
         </div>
         <div className={css.miniCard}>

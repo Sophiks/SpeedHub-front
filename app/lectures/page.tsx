@@ -1,5 +1,8 @@
-const Lectures = () => {
-    return (<div>Lectures page</div>);
-}
+"use client";
 
-export default Lectures;
+import React from "react";
+import LecturePage from "@/components/LecturePage/LecturePage";
+
+export default function LecturesPage() {
+    return <LecturePage />;
+}
