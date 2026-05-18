@@ -20,7 +20,6 @@ const StatsSummary = ({ statistics }: StatsSummaryProps) => {
 
   const examCorrect =
     statistics.randomTests?.reduce((acc, t) => {
-      // Використовуємо t.score, бо correctAnswers у цьому типі немає
       return acc + (t.score || 0);
     }, 0) || 0;
 

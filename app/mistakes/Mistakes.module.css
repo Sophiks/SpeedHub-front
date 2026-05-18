@@ -27,77 +27,69 @@
   margin-top: 4px;
 }
 
-.noAuth {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 50vh;
-  color: #64748b;
-  font-weight: 600;
-}
-
-.relativeContainer {
+.contentWrapper {
   position: relative;
-  margin-top: 24px;
+  width: 100%;
+  isolation: isolate;
 }
 
 .blurredContent {
-  filter: blur(12px);
+  filter: blur(16px);
   pointer-events: none;
   user-select: none;
+  opacity: 0.8;
 }
 
 .premiumOverlay {
   position: absolute;
-  top: 0;
+  top: 25px;
   left: 0;
   right: 0;
   bottom: 0;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
-  padding-top: 60px;
+  align-items: center;
+  background: linear-gradient(to bottom, rgba(244, 247, 250, 0.3), rgba(244, 247, 250, 0.8));
   z-index: 10;
-  pointer-events: none;
+  padding: 40px 20px;
+  border-radius: 24px;
 }
 
 .premiumContent {
-  pointer-events: auto;
   background: #ffffff;
-  padding: 32px;
-  border-radius: 28px;
+  padding: 40px;
+  border-radius: 32px;
   text-align: center;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
-  max-width: 380px;
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  position: sticky;
-  top: 120px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+  max-width: 420px;
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.03);
 }
 
 .lockIcon {
-  font-size: 44px;
+  font-size: 48px;
   display: block;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
 .premiumTitle {
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 800;
   color: #1e293b;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 }
 
 .premiumText {
-  font-size: 14px;
+  font-size: 15px;
   color: #64748b;
-  margin-bottom: 28px;
+  margin-bottom: 32px;
   line-height: 1.6;
 }
 
 .premiumBtn {
   background: #3b82f6;
   color: white;
-  padding: 16px 32px;
+  padding: 18px 36px;
   border-radius: 16px;
   font-size: 16px;
   font-weight: 700;
@@ -116,8 +108,17 @@
 .listsStack {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 32px;
   margin-top: 32px;
+}
+
+.noAuth {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  color: #64748b;
+  font-weight: 600;
 }
 
 .freeSection {
@@ -127,34 +128,16 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  .main {
-    background: #0f172a;
-  }
-  .title {
-    color: #f1f5f9;
+  .main { background: #0f172a; }
+  .title { color: #f1f5f9; }
+  .premiumOverlay {
+    background: linear-gradient(to bottom, rgba(15, 23, 42, 0.3), rgba(15, 23, 42, 0.9));
   }
   .premiumContent {
     background: #1e293b;
-    border-color: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    border-color: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.3);
   }
-  .premiumTitle {
-    color: #f1f5f9;
-  }
-  .premiumText {
-    color: #94a3b8;
-  }
-}
-
-@media (max-width: 600px) {
-  .main {
-    padding-bottom: 100px;
-  }
-  .premiumContent {
-    margin: 0 16px;
-    padding: 24px;
-  }
-  .premiumTitle {
-    font-size: 19px;
-  }
+  .premiumTitle { color: #f1f5f9; }
+  .premiumText { color: #94a3b8; }
 }

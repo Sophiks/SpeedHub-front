@@ -34,72 +34,65 @@ const Mistakes = () => {
 
   if (!user) {
     return (
-      <div className={css.noAuth}>
-        Будь ласка, авторизуйтесь, щоб побачити статистику
-      </div>
+        <div className={css.noAuth}>
+          Будь ласка, авторизуйтесь, щоб побачити статистику
+        </div>
     );
   }
 
   const isPremium = user.subscriptionType === "premium";
 
   return (
-    <main className={css.main}>
-      <div className={css.container}>
-        <header className={css.header}>
-          <h1 className={css.title}>Моя статистика</h1>
-          <p className={css.subtitle}>Аналіз ваших результатів та прогресу</p>
-        </header>
+      <main className={css.main}>
+        <div className={css.container}>
+          <header className={css.header}>
+            <h1 className={css.title}>Моя статистика</h1>
+            <p className={css.subtitle}>Аналіз ваших результатів та прогресу</p>
+          </header>
 
-        {user.statistics && (
-          <>
-            <StatsSummary statistics={user.statistics} />
+          {user.statistics && (
+              <div className={css.contentWrapper}>
+                {/* Контент, який буде заблюрено, якщо немає Premium */}
+                <div className={!isPremium ? css.blurredContent : ""}>
+                  <StatsSummary statistics={user.statistics} />
 
-            <div className={css.relativeContainer}>
-              <div className={!isPremium ? css.blurredContent : ""}>
-                <TopicMistakes statistics={user.statistics} />
-                <div className={css.listsStack}>
-                  <StatsList
-                    title="Історія іспитів"
-                    data={
-                      user.statistics.randomTests?.filter(
-                        (t) => t.total === 20,
-                      ) || []
-                    }
-                    type="exam"
-                  />
-                </div>
-              </div>
-
-              {!isPremium && (
-                <div className={css.premiumOverlay}>
-                  <div className={css.premiumContent}>
-                    <span className={css.lockIcon}>🔒</span>
-                    <h3 className={css.premiumTitle}>Premium доступ</h3>
-                    <p className={css.premiumText}>
-                      Відпрацювання помилок, історія іспитів та статистика за
-                      розділами доступні лише з Premium підпискою.
-                    </p>
-                    <Link href="/premium" className={css.premiumBtn}>
-                      Отримати Premium
-                    </Link>
+                  <div className={css.listsStack}>
+                    <TopicMistakes statistics={user.statistics} />
+                    <StatsList
+                        title="Історія іспитів"
+                        data={user.statistics.randomTests?.filter(t => t.total === 20) || []}
+                        type="exam"
+                    />
+                    {isPremium && (
+                        <StatsList
+                            title="Тести за розділами"
+                            data={user.statistics.unitsPassed || []}
+                            type="unit"
+                        />
+                    )}
                   </div>
                 </div>
-              )}
-            </div>
 
-            {isPremium && (
-              <div className={css.freeSection}>
-                <StatsList
-                  title="Тести за розділами"
-                  data={user.statistics.unitsPassed || []}
-                  type="unit"
-                />
+                {/* Оверлей Premium доступу */}
+                {!isPremium && (
+                    <div className={css.premiumOverlay}>
+                      <div className={css.premiumContent}>
+                        <span className={css.lockIcon}>🔒</span>
+                        <h3 className={css.premiumTitle}>Premium доступ</h3>
+                        <p className={css.premiumText}>
+                          Відпрацювання помилок, історія іспитів та статистика за
+                          розділами доступні лише з Premium підпискою.
+                        </p>
+                        <Link href="/premium" className={css.premiumBtn}>
+                          Отримати Premium
+                        </Link>
+                      </div>
+                    </div>
+                )}
               </div>
-            )}
-          </>
-        )}
-      </div>
-    </main>
+          )}
+        </div>
+      </main>
   );
 };
 
