@@ -3,32 +3,77 @@
 import React from "react";
 import css from "./AdminHeader.module.css";
 
+export type AdminTab = "users" | "lectures" | "tests" | "reviews";
+
 interface AdminHeaderProps {
-  title: string;
-  totalUsers: number;
-  premiumUsers: number;
+  currentTab: AdminTab;
+  stats: {
+    totalUsers?: number;
+    premiumUsers?: number;
+    totalLectures?: number;
+    totalTests?: number;
+    pendingReviews?: number;
+    approvedReviews?: number;
+  };
 }
 
-export default function AdminHeader({
-  title,
-  totalUsers,
-  premiumUsers,
-}: AdminHeaderProps) {
+export default function AdminHeader({ currentTab, stats }: AdminHeaderProps) {
+  const renderHeaderContent = () => {
+    switch (currentTab) {
+      case "users":
+        return {
+          title: "Користувачі",
+          cards: [
+            { label: "Всього користувачів:", value: stats.totalUsers ?? 0, isPremium: false },
+            { label: "Преміум підписки:", value: stats.premiumUsers ?? 0, isPremium: true },
+          ],
+        };
+
+      case "lectures":
+        return {
+          title: "Управління лекціями",
+          cards: [
+            { label: "Всього лекцій:", value: stats.totalLectures ?? 0, isPremium: false },
+          ],
+        };
+
+      case "tests":
+        return {
+          title: "Управління тестами",
+          cards: [
+            { label: "Всього тем:", value: stats.totalTests ?? 0, isPremium: false },
+          ],
+        };
+
+      case "reviews":
+        return {
+          title: "Модерація відгуків",
+          cards: [
+            { label: "Очікують перевірки:", value: stats.pendingReviews ?? 0, isPremium: true },
+            { label: "Затверджено відгуків:", value: stats.approvedReviews ?? 0, isPremium: false },
+          ],
+        };
+
+      default:
+        return { title: "Панель адміністратора", cards: [] };
+    }
+  };
+
+  const { title, cards } = renderHeaderContent();
+
   return (
-    <header className={css.header}>
-      <h1 className={css.title}>{title}</h1>
-      <div className={css.statsGroup}>
-        <div className={css.statCard}>
-          <span className={css.statLabel}>Всього:</span>
-          <strong className={css.statValue}>{totalUsers}</strong>
+      <header className={css.header}>
+        <h1 className={css.title}>{title}</h1>
+        <div className={css.statsGroup}>
+          {cards.map((card, index) => (
+              <div key={index} className={css.statCard}>
+                <span className={css.statLabel}>{card.label}</span>
+                <strong className={`${css.statValue} ${card.isPremium ? css.premiumText : ""}`}>
+                  {card.value}
+                </strong>
+              </div>
+          ))}
         </div>
-        <div className={css.statCard}>
-          <span className={css.statLabel}>Преміум:</span>
-          <strong className={`${css.statValue} ${css.premiumText}`}>
-            {premiumUsers}
-          </strong>
-        </div>
-      </div>
-    </header>
+      </header>
   );
 }

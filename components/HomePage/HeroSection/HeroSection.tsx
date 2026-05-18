@@ -13,7 +13,7 @@ const HeroSection = () => {
                     <div className={css.heroText}>
                         <h1 className={css.heroTitle}>Твоя швидка дорога до прав</h1>
                         <p className={css.heroSubtitle}>Сучасна онлайн-платформа для вивчення ПДР та ефективної підготовки до теоретичного іспиту</p>
-                        <Link href="/tests" className={`${css.button} ${css.heroButton}`}>пройти тест</Link>
+                        <Link href="/tests" className={`${css.button} ${css.heroButton}`}>Пройти тест</Link>
                     </div>
 
                     {/* Права колонка: Зображення / Ілюстрація */}

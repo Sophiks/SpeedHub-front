@@ -92,11 +92,15 @@ export default function EditQuestionModal({
     setIsSubmitting(true);
 
     const formData = new FormData();
+
+    // 1. СТРОГО НАЙПЕРШИМИ додаємо прості текстові поля
+    formData.append("id", category);
     formData.append("question", text);
-    formData.append("customId", category);
     formData.append("correct_option_id", correctOption.toString());
     formData.append("options", JSON.stringify(options));
     formData.append("existingImages", JSON.stringify(existingImages));
+
+    // 2. І тільки в самому кінці пушимо файли
     newImages.forEach((img) => formData.append("images", img));
 
     try {
