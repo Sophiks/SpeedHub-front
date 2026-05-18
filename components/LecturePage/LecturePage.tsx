@@ -26,11 +26,9 @@ export default function LecturePage() {
                 if (!res.ok) throw new Error("Помилка при отриманні лекцій");
                 const data: Lecture[] = await res.json();
 
-                const sortedData = (data || []).sort((a, b) => {
-                    const numA = parseInt(a.topic_id.replace(/[^\d]/g, ""), 10) || 0;
-                    const numB = parseInt(b.topic_id.replace(/[^\d]/g, ""), 10) || 0;
-                    return numA - numB;
-                });
+                const sortedData = (data || []).sort((a, b) =>
+                    a.topic_id.localeCompare(b.topic_id, undefined, { numeric: true, sensitivity: "base" })
+                );
 
                 setLectures(sortedData);
 

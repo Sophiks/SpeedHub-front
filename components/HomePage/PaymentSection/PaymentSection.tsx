@@ -22,7 +22,7 @@ const PaymentSection = () => {
                     </p>
 
                     
-                    <Link href="/" className={css.button}>
+                    <Link href="/premium" className={css.button}>
                         Оформити підписку
                     </Link>
 

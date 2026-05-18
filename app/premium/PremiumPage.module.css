@@ -1,0 +1,289 @@
+.main {
+    min-height: calc(100vh - 70px);
+    background: #f4f7fa;
+    padding: 60px 0 120px;
+    font-family: system-ui, -apple-system, sans-serif;
+    transition: background 0.3s ease;
+}
+
+.container {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* --- ШАПКА --- */
+.header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 50px;
+}
+
+.accentBadge {
+    display: inline-block;
+    background: rgba(59, 130, 246, 0.1);
+    color: #3b82f6;
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 16px;
+}
+
+.title {
+    font-size: 36px;
+    font-weight: 800;
+    color: #0f172a;
+    line-height: 1.2;
+}
+
+.subtitle {
+    font-size: 16px;
+    color: #64748b;
+    margin-top: 14px;
+    line-height: 1.6;
+}
+
+/* --- СІТКА КОНТЕНТУ --- */
+.contentGrid {
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: 40px;
+    align-items: start;
+}
+
+.sectionTitle {
+    font-size: 18px;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 20px;
+}
+
+.plansList {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* --- КАРТКА ПЛАНУ --- */
+.planCard {
+    background: #ffffff;
+    border: 2px solid #e2e8f0;
+    border-radius: 20px;
+    padding: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.planCard:hover {
+    border-color: #cbd5e1;
+    transform: translateY(-2px);
+}
+
+.selectedCard {
+    border-color: #3b82f6 !important;
+    box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.12);
+    background: rgba(59, 130, 246, 0.02);
+}
+
+.planBadge {
+    position: absolute;
+    top: -12px;
+    right: 24px;
+    background: #3b82f6;
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 800;
+    padding: 4px 12px;
+    border-radius: 50px;
+    text-transform: uppercase;
+}
+
+.planCardHeader {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.radioCircle {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 2px solid #cbd5e1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: border-color 0.2s;
+}
+
+.selectedCard .radioCircle {
+    border-color: #3b82f6;
+}
+
+.radioInner {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #3b82f6;
+}
+
+.planInfo h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 2px;
+}
+
+.planInfo p {
+    font-size: 13px;
+    color: #64748b;
+}
+
+.planPrice {
+    text-align: right;
+    display: flex;
+    align-items: baseline;
+    gap: 2px;
+}
+
+.currency {
+    font-size: 18px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.priceValue {
+    font-size: 32px;
+    font-weight: 800;
+    color: #0f172a;
+}
+
+.periodText {
+    font-size: 14px;
+    color: #64748b;
+    margin-left: 4px;
+}
+
+/* --- ЧЕК-АУТ ПАНЕЛЬ --- */
+.checkoutCard {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 24px;
+    padding: 32px;
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.05);
+}
+
+.checkoutTitle {
+    font-size: 16px;
+    font-weight: 800;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 16px;
+}
+
+.selectedPlanSummary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.summaryName {
+    font-size: 18px;
+    font-weight: 800;
+    color: #0f172a;
+}
+
+.summaryPrice {
+    font-size: 20px;
+    font-weight: 800;
+    color: #3b82f6;
+}
+
+.divider {
+    border: 0;
+    border-top: 1px dashed #e2e8f0;
+    margin: 20px 0;
+}
+
+.featureList {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+.featureItem {
+    font-size: 14px;
+    color: #334155;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    line-height: 1.4;
+}
+
+.checkIcon {
+    color: #3b82f6;
+    font-weight: bold;
+}
+
+.secureNotice {
+    font-size: 12px;
+    color: #94a3b8;
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.payBtn {
+    width: 100%;
+    background: #3b82f6;
+    color: #ffffff;
+    padding: 16px;
+    border-radius: 14px;
+    font-size: 16px;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(59, 130, 246, 0.3);
+    transition: all 0.2s ease;
+}
+
+.payBtn:hover {
+    background: #2563eb;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+}
+
+.payBtn:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* --- DARK MODE --- */
+@media (prefers-color-scheme: dark) {
+    .main { background: #0f172a; }
+    .title, .planInfo h3, .currency, .priceValue, .summaryName { color: #f1f5f9; }
+    .subtitle, .planInfo p, .periodText, .featureItem { color: #94a3b8; }
+    .planCard, .checkoutCard { background: #1e293b; border-color: rgba(255, 255, 255, 0.05); }
+    .planCard:hover { border-color: #475569; }
+    .selectedCard { background: rgba(59, 130, 246, 0.08); border-color: #3b82f6 !important; }
+    .radioCircle { border-color: #475569; }
+    .divider { border-color: #334155; }
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 850px) {
+    .contentGrid { grid-template-columns: 1fr; gap: 30px; }
+    .main { padding: 40px 0 80px; }
+    .title { font-size: 28px; }
+}
